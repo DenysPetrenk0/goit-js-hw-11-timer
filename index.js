@@ -2,21 +2,25 @@ class CountdownTimer {
   constructor({ selector, targetDate }) {
     this.selector = selector;
     this.targetDate = targetDate;
+    this.days = document.querySelector(
+      `${this.selector} span[data-value="days"]`
+    );
+    this.hours = document.querySelector(
+      `${this.selector} span[data-value="hours"]`
+    );
+    this.mins = document.querySelector(
+      `${this.selector} span[data-value="mins"]`
+    );
+    this.secs = document.querySelector(
+      `${this.selector} span[data-value="secs"]`
+    );
   }
 
   printTimer({ days, hours, mins, secs }) {
-    document.querySelector(
-      `${this.selector} span[data-value="days"]`
-    ).innerHTML = days;
-    document.querySelector(
-      `${this.selector} span[data-value="hours"]`
-    ).innerHTML = hours;
-    document.querySelector(
-      `${this.selector} span[data-value="mins"]`
-    ).innerHTML = mins;
-    document.querySelector(
-      `${this.selector} span[data-value="secs"]`
-    ).innerHTML = secs;
+    this.days.innerHTML = days;
+    this.hours.innerHTML = hours;
+    this.mins.innerHTML = mins;
+    this.secs.innerHTML = secs;
   }
 
   calcDate() {
